@@ -1,0 +1,22 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+<div class="form-wrapper">
+    <div class="container">
+        <h1>Logout</h1>
+        <p>Are you sure you want to logout?</p>
+
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="form_btn">Logout</button>
+        </form>
+
+        <div class="container signin">
+            <p>Go back to <a href="{% url 'dashboard' %}">Dashboard</a> or <a href="{% url 'login' %}">Login Again</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

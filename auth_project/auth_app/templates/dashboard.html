@@ -1,0 +1,23 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-wrapper">
+  
+        <h1>Welcome, {{ user.username }}!</h1>
+        <p>You are successfully logged in.</p>
+
+        <div class="dashboard-cards">
+            <div class="card">
+                <h2>Logout</h2>
+                <p>End your current session securely.</p>
+                <a href="{% url 'logout' %}" class="card-btn logout-btn">Logout</a>
+            </div>
+        </div>
+  
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+
+<div class="form-wrapper">
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="container">
+            <h1>Login</h1>
+
+            <!-- Username -->
+            <label for="{{ form.username.id_for_label }}"><b>Username</b></label>
+            <input type="text" 
+                   placeholder="Username" 
+                   name="{{ form.username.name }}" 
+                   id="{{ form.username.id_for_label }}" 
+                   value="{{ form.username.value|default:'' }}" 
+                   required>
+            {% if form.username.errors %}
+                <div class="text-danger">{{ form.username.errors.0 }}</div>
+            {% endif %}
+
+            <!-- Password -->
+            <label for="{{ form.password.id_for_label }}"><b>Password</b></label>
+            <input type="password" 
+                   placeholder="Enter password" 
+                   name="{{ form.password.name }}" 
+                   id="{{ form.password.id_for_label }}" 
+                   required>
+            {% if form.password.errors %}
+                <div class="text-danger">{{ form.password.errors.0 }}</div>
+            {% endif %}
+            
+            <button type="submit" class="form_btn">Login</button>
+        </div>
+
+        <div class="container signin">
+            <p>Don't have an account? <a href="{% url 'register' %}">Create a new account</a>.</p>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
