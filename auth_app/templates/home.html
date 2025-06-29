@@ -1,0 +1,32 @@
+{% extends "layout/base.html" %}
+
+{% load static %}
+
+{% block title %} User Authentication {% endblock %}
+
+{% block content %}
+    <div class="container_home">
+        <div class="profile-photo">
+            <img src="{% static 'images/profile.jpg' %}" alt="Profile Photo">
+        </div>
+        <h1>Welcome, User!</h1>
+        <p>Your GitHub-like dashboard</p>
+        <div class="button-group">
+            <a href="{% url 'login' %}" class="btn">Login</a>
+            <a href="{% url 'register' %}" class="btn">Register</a>
+        </div>
+
+           <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://github.com/Hell0Ankit" target="_blank">
+                <img src="https://static.licdn.com/aero-v1/sc/h/8s162nmbcnfkg7a0k8nq9wwqo" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/ankit-singh-9a0117232/" target="_blank">
+                <img src="https://github.githubassets.com/favicons/favicon.png" alt="LinkedIn">
+            </a>
+            <a href="https://x.com/AnkitSi92189680" target="_blank">
+                <img src="https://abs.twimg.com/favicons/twitter.3.ico" alt="Twitter">
+            </a>
+        </div>
+    </div>
+{% endblock %}
